@@ -6,7 +6,6 @@ body.welcome-page {
 .welcome {
     background-image: $welcomePageBackground;
     background-color: #fff;
-    display: flex;
     flex-direction: column;
     font-family: $welcomePageFontFamily;
     justify-content: space-between;
@@ -49,7 +48,6 @@ body.welcome-page {
             line-height: 26px;
             margin: 16px 0 32px 0;
             text-align: $welcomePageHeaderTextAlign;
-
         }
 
         #enter_room {
@@ -96,7 +94,7 @@ body.welcome-page {
                         margin-right: 15px;
 
                         svg {
-                            fill: $defaultWarningColor
+                            fill: $defaultWarningColor;
                         }
                     }
                 }
@@ -116,7 +114,6 @@ body.welcome-page {
                 position: absolute;
                 top: 84px;
             }
-
         }
 
         #moderated-meetings {
@@ -144,7 +141,7 @@ body.welcome-page {
         display: $welcomePageTabContainerDisplay;
         flex-direction: column;
 
-        .tab-content{
+        .tab-content {
             display: $welcomePageTabContentDisplay;
             height: 250px;
             margin: 5px 0px;
@@ -156,7 +153,7 @@ body.welcome-page {
         .tab-buttons {
             background-color: #c7ddff;
             border-radius: 6px;
-            color: #0163FF;
+            color: #0163ff;
             font-size: 14px;
             line-height: 18px;
             margin: 4px;
@@ -173,19 +170,18 @@ body.welcome-page {
                 text-align: center;
 
                 &.selected {
-                    background-color: #FFF;
+                    background-color: #fff;
                 }
             }
-
         }
     }
 
     .welcome-page-button {
         border: 0;
         font-size: 14px;
-        background: #0074E0;
+        background: #0074e0;
         border-radius: 3px;
-        color: #FFFFFF;
+        color: #ffffff;
         cursor: pointer;
         padding: 16px 20px;
 
@@ -238,7 +234,7 @@ body.welcome-page {
     }
 
     .welcome-cards-container {
-        color:#131519;
+        color: #131519;
         padding-top: 40px;
     }
 
@@ -262,11 +258,11 @@ body.welcome-page {
         }
 
         &--blue {
-            background: #D5E5FF;
+            background: #d5e5ff;
         }
 
         &--grey {
-            background: #F2F3F4;
+            background: #f2f3f4;
         }
 
         &--shadow {

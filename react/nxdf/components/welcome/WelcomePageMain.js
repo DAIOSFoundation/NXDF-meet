@@ -9,27 +9,33 @@ const WelcomePageMain = (props) => {
         setgrid((p) => !p);
     };
     const item = {
+        beforeOpen: { y: "-100vh", display: "none", visibility: "hidden" },
         afterOpen: {
             opacity: 1,
+            height: "100vh",
             y: 0,
+            display: "block",
+            visibility: "visible",
             transition: {
-                duration: 3,
+                duration: 2,
             },
         },
-        beforOpen: { y: "-100vh" },
         afterClose: {
-            opacity: 1,
-            y: 0,
+            y: "-100vh",
+            height: 0,
             transition: {
-                duration: 3,
+                duration: 2,
+            },
+            transitionEnd: {
+                display: "none",
+                visibility: "hidden",
             },
         },
-        beforClose: { y: "-100vh" },
     };
 
     return (
         <Welcome>
-            <Header>
+            <FirstHeaderLayout>
                 <HeaderLayout>
                     <HeaderDiv>
                         <HeaderTitle>
@@ -59,7 +65,7 @@ const WelcomePageMain = (props) => {
                         </HeaderBtn>
                     </HeaderDiv2>
                 </HeaderLayout>
-            </Header>
+            </FirstHeaderLayout>
             <Main>
                 <MainLayout>
                     <Media>
@@ -98,9 +104,9 @@ const WelcomePageMain = (props) => {
             </Main>
             <Gridiv
                 grid={grid}
-                // initial="afterOpen"
-                // animate="beforOpen"
-                // variants={item}
+                initial="beforeOpen"
+                animate={grid ? "afterOpen" : "afterClose"}
+                variants={item}
             >
                 <GridLayout>
                     <GridinnerDiv>
@@ -227,8 +233,8 @@ const HeaderNavTitle = styled.div`
 
 //추가 이미지
 const Gridiv = styled(motion.div)`
-    display: ${(props) => (props.grid ? "block" : "none")};
-    visibility: ${(props) => (props.grid ? "visible" : "hidden")};
+    /* display: ${(props) => (props.grid ? "block" : "none")};
+    visibility: ${(props) => (props.grid ? "visible" : "hidden")}; */
     width: 100%;
     height: 100vh;
     margin-bottom: 3rem;
@@ -437,8 +443,7 @@ const Welcome = styled.div`
     height: 100vh;
 `;
 
-//헤더
-const Header = styled.div`
+const FirstHeaderLayout = styled.div`
     width: 100%;
     background-color: white;
     height: 5vh;

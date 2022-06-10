@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { compose, createStore } from "redux";
 import Thunk from "redux-thunk";
 import { Switch, Route, HashRouter } from "react-router-dom";
-import WelcomePageMain from "../../../welcome/components/WelcomePageMain";
+import WelcomePageMain from "../../../../nxdf/components/welcome/WelcomePageMain";
 
 import { i18next } from "../../i18n";
 import {

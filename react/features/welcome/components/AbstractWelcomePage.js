@@ -180,14 +180,14 @@ export class AbstractWelcomePage<P: Props> extends Component<P, *> {
      */
     _onJoin() {
         const room = this.state.room || this.state.generatedRoomname;
-
+        console.log(`여기:${room}`);
         sendAnalytics(
             createWelcomePageEvent('clicked', 'joinButton', {
                 isGenerated: !this.state.room,
                 room
             }));
 
-        if (room) {
+        if (room !== "meeting") {
             this.setState({ joining: true });
 
             // By the time the Promise of appNavigate settles, this component

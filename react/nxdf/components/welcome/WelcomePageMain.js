@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const WelcomePageMain = (props) => {
+    const history = useHistory();
     const [grid, setgrid] = useState(false);
     const Onclick = () => {
-        setgrid((p) => !p);
+        setgrid(true);
     };
     const item = {
         beforeOpen: { y: "-100vh", display: "none", visibility: "hidden" },
@@ -33,6 +34,11 @@ const WelcomePageMain = (props) => {
         },
     };
 
+    const meeting = () => {
+         history.push({
+            pathname: `/meeting`,
+        });
+    }
     return (
         <Welcome>
             <FirstHeaderLayout>
@@ -55,13 +61,13 @@ const WelcomePageMain = (props) => {
                         </HeaderNav>
                     </HeaderDiv>
                     <HeaderDiv2>
-                        <HeaderBtn>
-                            <img
-                                src="/images/video.svg"
-                                width="20px"
-                                height="20px"
-                            />
-                            <span>회의 시작하기</span>
+                        <HeaderBtn onClick={meeting}>
+                                <img
+                                    src="/images/video.svg"
+                                    width="20px"
+                                    height="20px"
+                                />
+                                <span>회의 시작하기</span>
                         </HeaderBtn>
                     </HeaderDiv2>
                 </HeaderLayout>
@@ -69,7 +75,7 @@ const WelcomePageMain = (props) => {
             <Main>
                 <MainLayout>
                     <Media>
-                        <img src="/images/utubeimg.png" />
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Xp2Mlc2UZAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </Media>
                     <MediaDes>
                         <MediaDesLayout>
@@ -80,13 +86,13 @@ const WelcomePageMain = (props) => {
                                     서비스를 누구나 모든 기기에 사용할 수
                                     있습니다.
                                 </DeSpan>
-                                <MediaButton>
-                                    <img
-                                        src="/images/video.svg"
-                                        width="20px"
-                                        height="20px"
-                                    />
-                                    <span>회의 시작하기</span>
+                                <MediaButton onClick={meeting}>
+                                        <img
+                                            src="/images/video.svg"
+                                            width="20px"
+                                            height="20px"
+                                        />
+                                            <span>회의 시작하기</span>
                                 </MediaButton>
                             </MediaInnerDes>
                             <MediaInnerDes2>
@@ -409,9 +415,17 @@ const MediaButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
-        margin-right: 10px;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        img {
+            margin-right: 10px;
+        }
     }
+    
     @media (max-width: 768px) {
         width: 50%;
     }

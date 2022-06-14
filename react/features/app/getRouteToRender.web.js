@@ -31,7 +31,8 @@ export function _getRouteToRender(stateful) {
  * @returns {Promise|undefined}
  */
 function _getWebConferenceRoute(state) {
-    if (!isRoomValid(state['features/base/conference'].room)) {
+    //0614여기 수정
+    if (!isRoomValid(state['features/base/conference'].room) || window.location.pathname === "/meeting") {
         return;
     }
 
@@ -53,7 +54,7 @@ function _getWebConferenceRoute(state) {
         .then(deepLinkComponent => {
             if (deepLinkComponent) {
                 route.component = deepLinkComponent;
-            } else if (isSupportedBrowser()) {
+            } else if (isSupportedBrowser() || window.location.pathname === "/meeting" ) {
                 route.component = Conference;
             } else {
                 route.component = UnsupportedDesktopBrowser;
@@ -71,9 +72,8 @@ function _getWebConferenceRoute(state) {
  */
 function _getWebWelcomePageRoute(state) {
     const route = _getEmptyRoute();
-
     if (isWelcomePageUserEnabled(state)) {
-        if (isSupportedBrowser()) {
+        if (isSupportedBrowser() || window.location.pathname === "/meeting") {
             route.component = WelcomePage;
         } else {
             route.component = UnsupportedDesktopBrowser;

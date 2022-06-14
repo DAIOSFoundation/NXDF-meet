@@ -7,8 +7,7 @@ import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import { compose, createStore } from "redux";
 import Thunk from "redux-thunk";
-import { Switch, Route, HashRouter } from "react-router-dom";
-import WelcomePageMain from "../../../../nxdf/components/welcome/WelcomePageMain";
+
 
 import { i18next } from "../../i18n";
 import {
@@ -21,6 +20,12 @@ import { SoundCollection } from "../../sounds";
 import { createDeferred } from "../../util";
 import { appWillMount, appWillUnmount } from "../actions";
 import logger from "../logger";
+
+
+
+import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import WelcomePageMain from "../../../../nxdf/components/welcome/WelcomePageMain";
+// import WelcomePage  from "../../../welcome";
 
 declare var APP: Object;
 
@@ -167,31 +172,23 @@ export default class BaseApp extends Component<*, State> {
             return (
                 <I18nextProvider i18n={i18next}>
                     <Provider store={store}>
-                        <HashRouter>
+                        <BrowserRouter>
                             <Switch>
                                 <Fragment>
                                     {this._createMainElement(component, props)}
                                     <SoundCollection />
                                     {this._createExtraElement()}
-                                    <Route
+                                      <Route
                                         exact
                                         path="/"
-                                        name="MainPage"
-                                        render={(props) => (
+                                        name="WelcomePage"
+                                        render={(props) => 
                                             <WelcomePageMain {...props} />
-                                        )}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/meeting"
-                                        name="MainPage"
-                                        render={(props) => (
-                                            <WelcomePageMain {...props} />
-                                        )}
+                                        }
                                     />
                                 </Fragment>
                             </Switch>
-                        </HashRouter>
+                        </BrowserRouter>
                         {this._renderDialogContainer()}
                     </Provider>
                 </I18nextProvider>

@@ -131,10 +131,8 @@ class WelcomePage extends AbstractWelcomePage {
      */
     componentDidMount() {
         super.componentDidMount();
-        const location = this.props.history.location.pathname;
-        console.log(location);
         document.body.classList.add("welcome-page");
-        document.title = interfaceConfig.APP_NAME;
+        document.title ="Nxdf Meet";
 
         if (this.state.generateRoomnames) {
             this._updateRoomname();
@@ -193,14 +191,12 @@ class WelcomePage extends AbstractWelcomePage {
             : "without-footer";
 
         const location = this.props.history.location.pathname;
-        console.log(location);
 
         const Remover = styled.div`
             visibility: ${(props) =>
                 props.location === "/" ? "hidden" : "visible"};
             display: ${(props) => (props.location === "/" ? "none" : "block")};
         `;
-
         return (
             <Remover
                 location={location}
@@ -209,7 +205,7 @@ class WelcomePage extends AbstractWelcomePage {
             >
                 <div className="welcome-watermark">
                     <Watermarks
-                        defaultJitsiLogoURL={DEFAULT_WELCOME_PAGE_LOGO_URL}
+                        defaultJitsiLogoURL={"/images/nxdfLogo.png"}
                     />
                 </div>
 
@@ -226,7 +222,7 @@ class WelcomePage extends AbstractWelcomePage {
                     <div className="header-image" />
                     <div className="header-container">
                         <h1 className="header-text-title">
-                            {t("welcomepage.headerTitle")}
+                            Nxdf Meet
                         </h1>
                         <span className="header-text-subtitle">
                             {t("welcomepage.headerSubtitle")}
@@ -336,9 +332,16 @@ class WelcomePage extends AbstractWelcomePage {
      */
     _onFormSubmit(event) {
         event.preventDefault();
-
         if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
-            this._onJoin();
+            if (this.state.room === "") {
+                window.location.href = this.state.roomPlaceholder;
+                this._onJoin();
+            } else if (this.state.room === "meeting") {
+                alert("can not use meeting")
+            } else {
+                window.location.href = this.state.room;
+                this._onJoin();
+            }
         }
     }
 
@@ -384,44 +387,7 @@ class WelcomePage extends AbstractWelcomePage {
         return (
             <footer className="welcome-footer">
                 <div className="welcome-footer-centered">
-                    <div className="welcome-footer-padded">
-                        <div className="welcome-footer-row-block welcome-footer--row-1">
-                            <div className="welcome-footer-row-1-text">
-                                {t("welcomepage.jitsiOnMobile")}
-                            </div>
-                            <a
-                                className="welcome-badge"
-                                href={MOBILE_DOWNLOAD_LINK_IOS}
-                            >
-                                <img
-                                    alt={t("welcomepage.mobileDownLoadLinkIos")}
-                                    src="./images/app-store-badge.png"
-                                />
-                            </a>
-                            <a
-                                className="welcome-badge"
-                                href={MOBILE_DOWNLOAD_LINK_ANDROID}
-                            >
-                                <img
-                                    alt={t(
-                                        "welcomepage.mobileDownLoadLinkAndroid"
-                                    )}
-                                    src="./images/google-play-badge.png"
-                                />
-                            </a>
-                            <a
-                                className="welcome-badge"
-                                href={MOBILE_DOWNLOAD_LINK_F_DROID}
-                            >
-                                <img
-                                    alt={t(
-                                        "welcomepage.mobileDownLoadLinkFDroid"
-                                    )}
-                                    src="./images/f-droid-badge.png"
-                                />
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
             </footer>
         );

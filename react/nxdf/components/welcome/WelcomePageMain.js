@@ -46,7 +46,7 @@ const WelcomePageMain = (props) => {
                     <HeaderDiv>
                         <HeaderTitle>
                             <img
-                                src="/images/nxdfLogo.png"
+                                src="/images/NXDFLogo.png"
                                 width="40px"
                                 height="40px"
                             />
@@ -163,7 +163,7 @@ const WelcomePageMain = (props) => {
                     <HeaderDiv>
                         <HeaderTitle>
                             <img
-                                src="/images/nxdfLogo.png"
+                                src="/images/NXDFLogo.png"
                                 width="20px"
                                 height="20px"
                             />

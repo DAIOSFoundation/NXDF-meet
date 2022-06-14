@@ -24,7 +24,7 @@ import logger from "../logger";
 
 
 import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
-import WelcomePageMain from "../../../../nxdf/components/welcome/WelcomePageMain";
+import WelcomePageMain from "../../../../NXDF/components/welcome/WelcomePageMain";
 // import WelcomePage  from "../../../welcome";
 
 declare var APP: Object;

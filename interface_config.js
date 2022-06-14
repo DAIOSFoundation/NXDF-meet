@@ -9,7 +9,7 @@
  */
 
 var interfaceConfig = {
-    APP_NAME: 'Nxdf Meet',
+    APP_NAME: 'NXDF Meet',
     AUDIO_LEVEL_PRIMARY_COLOR: 'rgba(255,255,255,0.4)',
     AUDIO_LEVEL_SECONDARY_COLOR: 'rgba(255,255,255,0.2)',
 
@@ -27,8 +27,8 @@ var interfaceConfig = {
     CLOSE_PAGE_GUEST_HINT: false, // A html text to be shown to guests on the close page, false disables it
 
     DEFAULT_BACKGROUND: '#040404',
-    DEFAULT_LOGO_URL: 'images/nxdfLogo.png',
-    DEFAULT_WELCOME_PAGE_LOGO_URL: 'images/nxdfLogo.png',
+    DEFAULT_LOGO_URL: 'images/NXDFLogo.png',
+    DEFAULT_WELCOME_PAGE_LOGO_URL: 'images/NXDFLogo.png',
 
     DISABLE_DOMINANT_SPEAKER_INDICATOR: false,
 
@@ -87,10 +87,10 @@ var interfaceConfig = {
      */
     HIDE_INVITE_MORE_HEADER: false,
 
-    JITSI_WATERMARK_LINK: 'https://meet.nxdf.io',
+    JITSI_WATERMARK_LINK: 'https://meet.NXDF.io',
 
     LANG_DETECTION: true, // Allow i18n to detect the system language
-    LIVE_STREAMING_HELP_LINK: 'https://meet.nxdf.io/live', // Documentation reference for the live streaming feature.
+    LIVE_STREAMING_HELP_LINK: 'https://meet.NXDF.io/live', // Documentation reference for the live streaming feature.
     LOCAL_THUMBNAIL_RATIO: 16 / 9, // 16:9
 
     /**

@@ -9,7 +9,7 @@ function Header() {
                 <HeaderDiv>
                     <HeaderTitle>
                         <img
-                            src="/images/nxdfLogo.png"
+                            src="/images/NXDFLogo.png"
                             width="40px"
                             height="40px"
                         />

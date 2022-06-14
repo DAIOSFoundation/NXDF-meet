@@ -132,7 +132,7 @@ class WelcomePage extends AbstractWelcomePage {
     componentDidMount() {
         super.componentDidMount();
         document.body.classList.add("welcome-page");
-        document.title ="Nxdf Meet";
+        document.title ="NXDF Meet";
 
         if (this.state.generateRoomnames) {
             this._updateRoomname();
@@ -205,7 +205,7 @@ class WelcomePage extends AbstractWelcomePage {
             >
                 <div className="welcome-watermark">
                     <Watermarks
-                        defaultJitsiLogoURL={"/images/nxdfLogo.png"}
+                        defaultJitsiLogoURL={"/images/NXDFLogo.png"}
                     />
                 </div>
 
@@ -222,7 +222,7 @@ class WelcomePage extends AbstractWelcomePage {
                     <div className="header-image" />
                     <div className="header-container">
                         <h1 className="header-text-title">
-                            Nxdf Meet
+                            NXDF Meet
                         </h1>
                         <span className="header-text-subtitle">
                             {t("welcomepage.headerSubtitle")}

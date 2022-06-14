@@ -13,7 +13,7 @@ const WelcomePageMain = (props) => {
         beforeOpen: { y: "-100vh", display: "none", visibility: "hidden" },
         afterOpen: {
             opacity: 1,
-            height: "100vh",
+            height: "auto",
             y: 0,
             display: "block",
             visibility: "visible",
@@ -46,11 +46,10 @@ const WelcomePageMain = (props) => {
                     <HeaderDiv>
                         <HeaderTitle>
                             <img
-                                src="/images/NXDFLogo.png"
-                                width="40px"
+                                src="/images/NXDF_welcome_logo.png"
+                                width="200px"
                                 height="40px"
                             />
-                            <span>NXDF</span>
                         </HeaderTitle>
                         <HeaderNav>
                             <HeaderNavinner>
@@ -250,17 +249,17 @@ const Gridiv = styled(motion.div)`
 
 const GridLayout = styled.div`
     margin: 0 auto;
-    height: 100%;
     width: 60%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
     gap: 2rem;
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
+  
 
     div:nth-child(1) {
         order: 1;
@@ -326,7 +325,7 @@ const GridinnerDivImg = styled.div`
     background-size: 100% 100%;
     @media (max-width: 768px) {
         width: 50%;
-        height: 100%;
+        min-height: 100%;
         background-position: center;
         align-self: center;
         justify-self: center;
@@ -395,7 +394,7 @@ const MediaDesLayout = styled.div`
 `;
 
 const MediaInnerDes = styled.div`
-    width: 90%;
+    width: 50%;
     @media (max-width: 768px) {
         display: flex;
         justify-content: center;
@@ -432,7 +431,9 @@ const MediaButton = styled.button`
 `;
 
 const MediaInnerDes2 = styled.div`
+    border-radius :10px;
     img {
+        border-radius :10px;
         width: 100%;
         height: 100%;
     }

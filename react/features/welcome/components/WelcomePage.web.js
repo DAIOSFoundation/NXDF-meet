@@ -205,7 +205,7 @@ class WelcomePage extends AbstractWelcomePage {
             >
                 <div className="welcome-watermark">
                     <Watermarks
-                        defaultJitsiLogoURL={"/images/NXDFLogo.png"}
+                        defaultJitsiLogoURL={"/images/NXDF_welcome_logo.png"}
                     />
                 </div>
 

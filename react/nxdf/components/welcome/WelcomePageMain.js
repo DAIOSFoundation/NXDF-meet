@@ -477,7 +477,7 @@ const HeaderBtn = styled(MediaButton)`
             display: none;
         }
         img {
-            margin: 0;
+            margin-right: 10px;
         }
     }
 `;

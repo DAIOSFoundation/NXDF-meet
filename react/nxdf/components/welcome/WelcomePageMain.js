@@ -47,7 +47,7 @@ const WelcomePageMain = (props) => {
                         <HeaderTitle>
                             <img
                                 src="/images/NXDF_welcome_logo.png"
-                                width="200px"
+                                width="100%"
                                 height="40px"
                             />
                         </HeaderTitle>
@@ -80,11 +80,11 @@ const WelcomePageMain = (props) => {
                         <MediaDesLayout>
                             <MediaInnerDes>
                                 <DesH>모두를 위한 프리미엄 화상 회의</DesH>
-                                <DeSpan>
+                                <MainDeSpan>
                                     안전한 고품질 비즈니스 회의 위한 NXDF Meet
                                     서비스를 누구나 모든 기기에 사용할 수
                                     있습니다.
-                                </DeSpan>
+                                </MainDeSpan>
                                 <MediaButton onClick={meeting}>
                                         <img
                                             src="/images/video.svg"
@@ -201,7 +201,8 @@ const HeaderDiv2 = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-    width: 30%;
+    padding: 10px;
+    width: 35%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -211,6 +212,11 @@ const HeaderTitle = styled.div`
     }
     img {
         margin-right: 1rem;
+
+        @media(max-width:768px){
+            min-width: 200px;
+            margin: 0px;
+        }
     }
 `;
 
@@ -234,6 +240,9 @@ const HeaderNavTitle = styled.div`
         display: inline-block;
         border-bottom: 2px solid black;
     }
+    @media(max-width:768px) {
+        display: none;
+    }
 `;
 
 //추가 이미지
@@ -241,7 +250,6 @@ const Gridiv = styled(motion.div)`
     /* display: ${(props) => (props.grid ? "block" : "none")};
     visibility: ${(props) => (props.grid ? "visible" : "hidden")}; */
     width: 100%;
-    height: 100vh;
     margin-bottom: 3rem;
     position: relative;
     z-index: -100;
@@ -256,8 +264,13 @@ const GridLayout = styled.div`
     gap: 2rem;
 
     @media (max-width: 768px) {
+        height: auto;
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(6, auto);
+    }
+    @media (max-width: 1200px) {
+        height: auto;
+        grid-template-rows: repeat(3, auto);
     }
   
 
@@ -298,6 +311,9 @@ const DesH = styled.span`
     display: inline-block;
     font-size: 2.5rem;
     padding-bottom: 10px;
+    @media (max-width: 1200px) {
+        font-size: 1.2rem;
+    }
     @media (max-width: 768px) {
         font-size: 1rem;
     }
@@ -313,6 +329,17 @@ const DeSpan = styled.span`
     }
 `;
 
+const MainDeSpan = styled.span`
+    display: inline-block;
+    font-size: 1rem;
+    color: gray;
+    padding-bottom: 10px;
+    @media (max-width: 768px) {
+        font-size: 0.5rem;
+        text-align: center;
+    }
+`;
+
 const GridinnerDiv = styled.div`
     width: 80%;
     @media (min-width: 2000px) {
@@ -323,9 +350,9 @@ const GridinnerDivImg = styled.div`
     background-image: ${(props) => `url(${props.img})`};
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    @media (max-width: 768px) {
-        width: 50%;
-        min-height: 100%;
+    @media (max-width: 1200px) {
+        width: 100%;
+        min-height: 250px;
         background-position: center;
         align-self: center;
         justify-self: center;
@@ -377,6 +404,10 @@ const Media = styled.div`
 const MediaDes = styled.div`
     width: 100%;
     height: 30%;
+     @media (max-width: 768px) {
+        height: 50%;
+
+      }
 `;
 
 const MediaDesLayout = styled.div`
@@ -400,13 +431,14 @@ const MediaInnerDes = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
         height: 50%;
     }
 `;
 
 const MediaButton = styled.button`
     background: linear-gradient(45deg, #9281e1, #de2f89);
-    width: 30%;
+    width: 40%;
     font-size: 1rem;
     padding: 10px;
     color: white;
@@ -414,19 +446,22 @@ const MediaButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: white;
-        img {
-            margin-right: 10px;
-        }
+    img {
+        margin-right: 10px;
     }
-    
+    @media (max-width: 1200px) {
+        width: 80%;
+    }
     @media (max-width: 768px) {
         width: 50%;
+    }
+    @media(max-width: 400px){
+        img {
+        margin: 0px;
+        }
+        span{
+            display: none;
+        }
     }
 `;
 
@@ -472,14 +507,20 @@ const FirstHeaderLayout = styled.div`
 `;
 
 const HeaderBtn = styled(MediaButton)`
+    img {
+            margin-right: 10px;
+        }
     @media (max-width: 768px) {
         width: 20%;
         span {
             display: none;
         }
         img {
-            margin-right: 10px;
+            margin: 0px;
         }
+    }
+    @media (max-width:400px){
+         width: 50%;
     }
 `;
 

@@ -159,14 +159,14 @@ const WelcomePageMain = (props) => {
             <Footer>
                 <FooterLayout>
                     <HeaderDiv>
-                        <HeaderTitle>
+                        <CommonTitle>
                             <img
                                 src="/images/NXDFLogo.png"
                                 width="20px"
                                 height="20px"
                             />
                             <span>NXDF</span>
-                        </HeaderTitle>
+                        </CommonTitle>
                     </HeaderDiv>
                     <HeaderDiv2></HeaderDiv2>
                 </FooterLayout>
@@ -199,7 +199,7 @@ const HeaderDiv2 = styled.div`
     justify-content: flex-end;
 `;
 
-const HeaderTitle = styled.div`
+const CommonTitle = styled.div`
     padding: 10px;
     width: 35%;
     display: flex;
@@ -212,6 +212,11 @@ const HeaderTitle = styled.div`
     img {
         margin-right: 1rem;
 
+    }
+`;
+
+const HeaderTitle = styled(CommonTitle)`
+    img {
         @media(max-width:768px){
             min-width: 200px;
             margin: 0px;
@@ -271,7 +276,6 @@ const GridLayout = styled.div`
         height: auto;
         grid-template-rows: repeat(3, auto);
     }
-  
 
     div:nth-child(1) {
         order: 1;

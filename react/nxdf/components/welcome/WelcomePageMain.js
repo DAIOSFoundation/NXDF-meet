@@ -54,7 +54,6 @@ const WelcomePageMain = (props) => {
                         <HeaderNav>
                             <HeaderNavinner>
                                 <HeaderNavTitle>
-                                    <span>개요</span>
                                 </HeaderNavTitle>
                             </HeaderNavinner>
                         </HeaderNav>

@@ -54,3 +54,35 @@ export const EXIT_QUERY = gql`
         }
     }
 `;
+export const LOG_ENTER_QUERY = gql`
+    mutation LogEnterMutation(
+        $participantNameKr: String
+        $hostNameEng: String
+        $hostNameKr: String
+    ) {
+        EnterLog(
+            participantNameKr: $participantNameKr
+            hostNameEng: $hostNameEng
+            hostNameKr: $hostNameKr
+        ) {
+            ok
+            message
+        }
+    }
+`;
+export const LOG_EXIT_QUERY = gql`
+    mutation LogExitMutation(
+        $participantNameKr: String
+        $hostNameEng: String
+        $hostNameKr: String
+    ) {
+        ExitLog(
+            participantNameKr: $participantNameKr
+            hostNameEng: $hostNameEng
+            hostNameKr: $hostNameKr
+        ) {
+            ok
+            message
+        }
+    }
+`;

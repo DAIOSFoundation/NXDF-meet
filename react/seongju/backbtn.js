@@ -1,15 +1,28 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
-import { EXIT_QUERY } from "./mutation";
+import { dummy } from "./dummy";
+import { EXIT_QUERY, LOG_EXIT_QUERY } from "./mutation";
 
 function Backbtn(value) {
-    const { name } = value;
+    const { name, location } = value;
+    const hostNameEng = location.substr(1);
+    const hostNameKr = dummy
+        .filter((a) => a.roomNameEng === hostNameEng)
+        .map((data) => data.roomNamekr)[0];
     const [backdata] = useMutation(EXIT_QUERY);
+    const [logbackdata] = useMutation(LOG_EXIT_QUERY);
 
     const back = () => {
         backdata({
             variables: {
                 participantNameKr: name,
+            },
+        });
+        logbackdata({
+            variables: {
+                participantNameKr: name,
+                hostNameEng,
+                hostNameKr,
             },
         });
 

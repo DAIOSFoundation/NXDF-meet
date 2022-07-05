@@ -1,9 +1,7 @@
 // @flow
 
-import { useMutation } from "@apollo/client";
 import _ from "lodash";
 import React from "react";
-import { EXIT_QUERY } from "../../../../seongju/mutation";
 
 import VideoLayout from "../../../../../modules/UI/videolayout/VideoLayout";
 import { getConferenceNameForTitle } from "../../../base/conference";
@@ -276,7 +274,7 @@ class Conference extends AbstractConference<Props, *> {
                     {_showPrejoin && <Prejoin />}
                     {_showLobby && <LobbyScreen />}
                 </div>
-                <Backbtn name={name} />
+                <Backbtn name={name} location={window.location.pathname} />
                 <ParticipantsPane />
             </div>
         );

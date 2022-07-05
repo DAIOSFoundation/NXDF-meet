@@ -35,9 +35,6 @@ import {
 
 import DropdownButton from "./DropdownButton";
 import JoinByPhoneDialog from "./dialogs/JoinByPhoneDialog";
-import { useMutation } from "@apollo/client";
-import { ENTER_QUERY } from "../../../seongju/mutation";
-import { dummy } from "../../../seongju/dummy";
 import PreJoinBtn from "../../../seongju/prejoinBtn";
 
 type Props = {

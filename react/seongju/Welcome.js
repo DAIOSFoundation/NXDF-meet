@@ -1,14 +1,22 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
 import { dummy } from "./dummy";
-import { ENTER_QUERY } from "./mutation";
+import { ENTER_QUERY, LOG_ENTER_QUERY } from "./mutation";
 
 function Welcome(props) {
     const { name } = props;
     const [enter] = useMutation(ENTER_QUERY);
+    const [enterlog] = useMutation(LOG_ENTER_QUERY);
 
     const onClick = (hostNameKr, hostNameEng) => {
         enter({
+            variables: {
+                participantNameKr: name,
+                hostNameEng,
+                hostNameKr,
+            },
+        });
+        enterlog({
             variables: {
                 participantNameKr: name,
                 hostNameEng,

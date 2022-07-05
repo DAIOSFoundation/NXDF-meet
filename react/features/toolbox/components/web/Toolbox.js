@@ -4,9 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
 import { batch } from "react-redux";
 
-import { useMutation } from "@apollo/client";
 import keyboardShortcut from "../../../../../modules/keyboardshortcut/keyboardshortcut";
-import { EXIT_QUERY } from "../../../../seongju/mutation";
 import {
     ACTION_SHORTCUT_TRIGGERED,
     createShortcutEvent,

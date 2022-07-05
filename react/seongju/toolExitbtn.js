@@ -12,16 +12,16 @@ function Exitbtn({ children }) {
         .map((data) => data.roomNamekr)[0];
 
     const back = () => {
-        backdata({
-            variables: {
-                participantNameKr: children.props.name,
-            },
-        });
         logbackdata({
             variables: {
                 participantNameKr: name,
                 hostNameEng,
                 hostNameKr,
+            },
+        });
+        backdata({
+            variables: {
+                participantNameKr: children.props.name,
             },
         });
     };

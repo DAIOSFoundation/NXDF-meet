@@ -8,15 +8,15 @@ function Welcome(props) {
     const [enter] = useMutation(ENTER_QUERY);
     const [enterlog] = useMutation(LOG_ENTER_QUERY);
 
-    const onClick = (hostNameKr, hostNameEng) => {
-        enter({
+    const onClick = async (hostNameKr, hostNameEng) => {
+        await enterlog({
             variables: {
                 participantNameKr: name,
                 hostNameEng,
                 hostNameKr,
             },
         });
-        enterlog({
+        await enter({
             variables: {
                 participantNameKr: name,
                 hostNameEng,

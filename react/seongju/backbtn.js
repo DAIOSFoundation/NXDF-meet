@@ -13,16 +13,16 @@ function Backbtn(value) {
     const [logbackdata] = useMutation(LOG_EXIT_QUERY);
 
     const back = () => {
-        backdata({
-            variables: {
-                participantNameKr: name,
-            },
-        });
         logbackdata({
             variables: {
                 participantNameKr: name,
                 hostNameEng,
                 hostNameKr,
+            },
+        });
+        backdata({
+            variables: {
+                participantNameKr: name,
             },
         });
 

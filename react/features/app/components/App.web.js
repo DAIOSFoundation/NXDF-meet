@@ -1,6 +1,7 @@
 // @flow
 
 import { ApolloProvider } from "@apollo/client";
+import { RecoilRoot } from "recoil";
 import { AtlasKitThemeProvider } from "@atlaskit/theme";
 import React from "react";
 
@@ -31,13 +32,15 @@ export class App extends AbstractApp {
     _createMainElement(component, props) {
         return (
             <ApolloProvider client={client}>
-                <JitsiThemeProvider>
-                    <AtlasKitThemeProvider mode="dark">
-                        <GlobalStyles />
-                        <ChromeExtensionBanner />
-                        {super._createMainElement(component, props)}
-                    </AtlasKitThemeProvider>
-                </JitsiThemeProvider>
+                <RecoilRoot>
+                    <JitsiThemeProvider>
+                        <AtlasKitThemeProvider mode="dark">
+                            <GlobalStyles />
+                            <ChromeExtensionBanner />
+                            {super._createMainElement(component, props)}
+                        </AtlasKitThemeProvider>
+                    </JitsiThemeProvider>
+                </RecoilRoot>
             </ApolloProvider>
         );
     }

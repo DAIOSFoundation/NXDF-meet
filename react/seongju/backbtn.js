@@ -1,9 +1,12 @@
 import { useMutation } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
+import dayjs from "dayjs";
 import { dummy } from "./dummy";
 import { EXIT_QUERY, LOG_EXIT_QUERY } from "./mutation";
 
 function Backbtn(value) {
+    const dbNow = dayjs().add(9, "hour");
+    const [EnterTime, setEnterTime] = useState(dbNow);
     const { name, location } = value;
     const hostNameEng = location.substr(1);
     const hostNameKr = dummy
@@ -18,6 +21,7 @@ function Backbtn(value) {
                 participantNameKr: name,
                 hostNameEng,
                 hostNameKr,
+                enteredDate: EnterTime,
             },
         });
         backdata({

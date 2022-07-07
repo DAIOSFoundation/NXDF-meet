@@ -75,11 +75,13 @@ export const LOG_EXIT_QUERY = gql`
         $participantNameKr: String
         $hostNameEng: String
         $hostNameKr: String
+        $enteredDate: String
     ) {
         ExitLog(
             participantNameKr: $participantNameKr
             hostNameEng: $hostNameEng
             hostNameKr: $hostNameKr
+            enteredDate: $enteredDate
         ) {
             ok
             message

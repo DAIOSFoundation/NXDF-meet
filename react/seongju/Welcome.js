@@ -1,29 +1,8 @@
 import { useMutation } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import { dummy } from "./dummy";
-import { ENTER_QUERY, LOG_ENTER_QUERY } from "./mutation";
 
 function Welcome(props) {
-    const { name } = props;
-    const [enter] = useMutation(ENTER_QUERY);
-    const [enterlog] = useMutation(LOG_ENTER_QUERY);
-
-    const onClick = async (hostNameKr, hostNameEng) => {
-        await enterlog({
-            variables: {
-                participantNameKr: name,
-                hostNameEng,
-                hostNameKr,
-            },
-        });
-        await enter({
-            variables: {
-                participantNameKr: name,
-                hostNameEng,
-                hostNameKr,
-            },
-        });
-    };
     return (
         <div id="seongju" className="seongju">
             <div id="seongju_header">
@@ -44,12 +23,7 @@ function Welcome(props) {
                         <div id="title">
                             <span>{item.roomNamekr}</span>
                         </div>
-                        <div
-                            id="btn"
-                            onClick={() =>
-                                onClick(item.roomNamekr, item.roomNameEng)
-                            }
-                        >
+                        <div id="btn">
                             <a href={`${item.roomNameEng}`}>
                                 <img id="btn_img" src="/images/video.svg"></img>
                                 <span>입장하기</span>

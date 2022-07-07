@@ -17,7 +17,7 @@ function Exitbtn({ children }) {
     const back = () => {
         logbackdata({
             variables: {
-                participantNameKr: name,
+                participantNameKr: children.props.name,
                 hostNameEng,
                 hostNameKr,
                 enteredDate: Enter,

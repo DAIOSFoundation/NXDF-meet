@@ -94,7 +94,7 @@ const styles = (theme) => {
             lineHeight: `${theme.typography.labelBold.lineHeight}px`,
             color: theme.palette.text01,
             textOverflow: "ellipsis",
-            fontSize: "30px",
+            fontSize: "14px",
             whiteSpace: "nowrap",
         },
 

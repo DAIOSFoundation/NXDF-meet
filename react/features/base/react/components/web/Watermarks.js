@@ -170,7 +170,7 @@ class Watermarks extends Component<Props, State> {
                         })}
                         className="watermark leftwatermark"
                         //0527 나중에 성주군청으로 리다이렉트되게 바꿔야됌
-                        href="https://meet.nxdf.io"
+                        href="https://meet.sj.go.kr"
                         target="_new"
                     >
                         {reactElement}

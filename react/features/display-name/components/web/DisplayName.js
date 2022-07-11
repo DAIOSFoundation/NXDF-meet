@@ -86,7 +86,7 @@ type State = {
      */
     isEditing: boolean,
 };
-//0531 여기서 폰트 수정
+//0531 여기서 디스플레이 폰트 수정
 const styles = (theme) => {
     return {
         displayName: {
@@ -94,7 +94,7 @@ const styles = (theme) => {
             lineHeight: `${theme.typography.labelBold.lineHeight}px`,
             color: theme.palette.text01,
             textOverflow: "ellipsis",
-            fontSize: "60px",
+            fontSize: "30px",
             whiteSpace: "nowrap",
         },
 

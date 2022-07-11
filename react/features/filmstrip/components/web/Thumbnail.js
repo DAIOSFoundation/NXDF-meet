@@ -260,16 +260,16 @@ export type Props = {|
      */
     _sourceNameSignalingEnabled: boolean,
 |};
-//바텀 썸네일 수정(0527)
+//바텀 썸네일 수정 폰트 크기(0527)
 const defaultStyles = (theme) => {
     return {
         indicatorsContainer: {
             position: "absolute",
             padding: `${theme.spacing(1)}px`,
             zIndex: 10,
-            width: "400px",
-            height: "100px",
-            fontSize: "60px",
+            width: "200px",
+            height: "50px",
+            fontSize: "30px",
             boxSizing: "border-box",
             display: "flex",
             left: 0,

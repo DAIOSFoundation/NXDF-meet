@@ -1,8 +1,20 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { dummy } from "./dummy";
+import { ENTER_QUERY } from "./mutation";
 
 function Welcome(props) {
+    const { name } = props;
+    const [enterData] = useMutation(ENTER_QUERY);
+    const onClick = (hostNameKr, hostNameEng) => {
+        enterData({
+            variables: {
+                participantNameKr: name,
+                hostNameEng,
+                hostNameKr,
+            },
+        });
+    };
     return (
         <div id="seongju" className="seongju">
             <div id="seongju_header">
@@ -23,7 +35,12 @@ function Welcome(props) {
                         <div id="title">
                             <span>{item.roomNamekr}</span>
                         </div>
-                        <div id="btn">
+                        <div
+                            id="btn"
+                            onClick={() =>
+                                onClick(item.roomNamekr, item.roomNameEng)
+                            }
+                        >
                             <a href={`${item.roomNameEng}`}>
                                 <img id="btn_img" src="/images/video.svg"></img>
                                 <span>입장하기</span>

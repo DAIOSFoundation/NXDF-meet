@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { MediaButton } from "./Common";
+import { MediaButton } from "../welcome/Common";
 
-function Header() {
+const Header = (props) => {
+    const { lang, setLang } = props;
+    const { solana } = window;
+    const language = () => {
+        setLang(lang === "ko" ? "en" : "ko");
+    };
+    const meeting = async () => {
+        if (solana) {
+            const response = await solana.connect();
+            console.log(response.ValidatorInfo);
+            console.log(response.publicKey.toString());
+        } else {
+            alert("Solana object not found! Get a Phantom Wallet 👻");
+        }
+    };
     return (
         <FirstHeaderLayout>
             <HeaderLayout>
                 <HeaderDiv>
                     <HeaderTitle>
                         <img
-                            src="/images/NXDFLogo.png"
-                            width="40px"
+                            src="/images/NXDF_welcome_logo.png"
+                            width="100%"
                             height="40px"
                         />
-                        <span>NXDF</span>
                     </HeaderTitle>
                     <HeaderNav>
                         <HeaderNavinner>
-                            <HeaderNavTitle>
-                                <span>개요</span>
-                            </HeaderNavTitle>
+                            <HeaderNavTitle></HeaderNavTitle>
                         </HeaderNavinner>
                     </HeaderNav>
                 </HeaderDiv>
                 <HeaderDiv2>
-                    <HeaderBtn>
+                    <HeaderBtn onClick={language}>
+                        <span>{lang}</span>
+                    </HeaderBtn>
+                    <HeaderBtn onClick={meeting}>
                         <img
                             src="/images/video.svg"
                             width="20px"
@@ -36,8 +50,7 @@ function Header() {
             </HeaderLayout>
         </FirstHeaderLayout>
     );
-}
-//헤더
+};
 
 const FirstHeaderLayout = styled.div`
     width: 100%;
@@ -52,6 +65,14 @@ const FirstHeaderLayout = styled.div`
     z-index: 200;
 `;
 
+const HeaderLayout = styled.div`
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
 const HeaderBtn = styled(MediaButton)`
     @media (max-width: 768px) {
         width: 20%;
@@ -64,29 +85,21 @@ const HeaderBtn = styled(MediaButton)`
     }
 `;
 
-const HeaderLayout = styled.div`
-    width: 90%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`;
-
-export const HeaderDiv = styled.div`
+const HeaderDiv = styled.div`
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 `;
-export const HeaderDiv2 = styled.div`
+const HeaderDiv2 = styled.div`
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 `;
 
-export const HeaderTitle = styled.div`
+const HeaderTitle = styled.div`
     width: 30%;
     display: flex;
     align-items: center;

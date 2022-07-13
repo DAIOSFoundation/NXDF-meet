@@ -1,21 +1,28 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { MediaButton } from "../welcome/Common";
+import { selectLang } from "./lang";
 
 const Header = (props) => {
     const { lang, setLang } = props;
+    const { StartMeeting } = selectLang(lang);
     const { solana } = window;
     const language = () => {
-        setLang(lang === "ko" ? "en" : "ko");
+        setLang(lang === "KR" ? "EN" : "KR");
     };
+    const history = useHistory();
     const meeting = async () => {
-        if (solana) {
-            const response = await solana.connect();
-            console.log(response.ValidatorInfo);
-            console.log(response.publicKey.toString());
-        } else {
-            alert("Solana object not found! Get a Phantom Wallet 👻");
-        }
+        // if (solana) {
+        //     const response = await solana.connect();
+        //     console.log(response.ValidatorInfo);
+        //     console.log(response.publicKey.toString());
+        // } else {
+        //     alert("Solana object not found! Get a Phantom Wallet 👻");
+        // }
+        history.push({
+            pathname: `/meeting`,
+        });
     };
     return (
         <FirstHeaderLayout>
@@ -26,6 +33,7 @@ const Header = (props) => {
                             src="/images/NXDF_welcome_logo.png"
                             width="100%"
                             height="40px"
+                            minWidth="150px"
                         />
                     </HeaderTitle>
                     <HeaderNav>
@@ -35,16 +43,16 @@ const Header = (props) => {
                     </HeaderNav>
                 </HeaderDiv>
                 <HeaderDiv2>
-                    <HeaderBtn onClick={language}>
+                    <HeaderlangBtn onClick={language}>
                         <span>{lang}</span>
-                    </HeaderBtn>
+                    </HeaderlangBtn>
                     <HeaderBtn onClick={meeting}>
                         <img
                             src="/images/video.svg"
                             width="20px"
                             height="20px"
                         />
-                        <span>회의 시작하기</span>
+                        <span>{StartMeeting}</span>
                     </HeaderBtn>
                 </HeaderDiv2>
             </HeaderLayout>
@@ -76,6 +84,20 @@ const HeaderLayout = styled.div`
 const HeaderBtn = styled(MediaButton)`
     @media (max-width: 768px) {
         width: 20%;
+        span {
+            display: none;
+        }
+        img {
+            margin: 0;
+        }
+    }
+`;
+
+const HeaderlangBtn = styled(MediaButton)`
+    margin-right: 2rem;
+    width: 15%;
+    @media (max-width: 768px) {
+        width: 10%;
         span {
             display: none;
         }

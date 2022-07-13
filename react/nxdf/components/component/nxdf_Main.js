@@ -1,27 +1,30 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { withRouter, useHistory } from "react-router-dom";
-import { motion } from "framer-motion";
 import { MediaButton, CommonH, CommonSpan } from "../welcome/Common";
+import { selectLang } from "./lang";
 
 const Main = (props) => {
-    const { grid, setgrid } = props;
+    const { grid, setgrid, lang } = props;
+    const { MainHeader, MainDiscription, StartMeeting, MainLearnNXDF } =
+        selectLang(lang);
     const { solana } = window;
     const Onclick = () => {
         setgrid((prev) => !prev);
     };
+    const history = useHistory();
     const meeting = async () => {
-        if (solana) {
-            const response = await solana.connect();
-            console.log(response.ValidatorInfo);
-            console.log(response.publicKey.toString());
-        } else {
-            alert("Solana object not found! Get a Phantom Wallet 👻");
-        }
+        // if (solana) {
+        //     const response = await solana.connect();
+        //     console.log(response.ValidatorInfo);
+        //     console.log(response.publicKey.toString());
+        // } else {
+        //     alert("Solana object not found! Get a Phantom Wallet 👻");
+        // }
 
-        // history.push({
-        // //     pathname: `/meeting`,
-        // });
+        history.push({
+            pathname: `/meeting`,
+        });
     };
     return (
         <MainPlace>
@@ -40,18 +43,15 @@ const Main = (props) => {
                 <MediaDes>
                     <MediaDesLayout>
                         <MediaInnerDes>
-                            <CommonH>모두를 위한 프리미엄 화상 회의</CommonH>
-                            <MainDeSpan>
-                                안전한 고품질 비즈니스 회의 위한 NXDF Meet
-                                서비스를 누구나 모든 기기에 사용할 수 있습니다.
-                            </MainDeSpan>
+                            <CommonH>{MainHeader}</CommonH>
+                            <MainDeSpan>{MainDiscription}</MainDeSpan>
                             <MediaButton onClick={meeting}>
                                 <img
                                     src="/images/video.svg"
                                     width="20px"
                                     height="20px"
                                 />
-                                <span>회의 시작하기</span>
+                                <span>{StartMeeting}</span>
                             </MediaButton>
                         </MediaInnerDes>
                         <MediaInnerDes2>
@@ -61,7 +61,7 @@ const Main = (props) => {
                 </MediaDes>
                 <Grid>
                     <GridBtn onClick={Onclick}>
-                        <span>NXDF Meet 알아보기</span>
+                        <span>{MainLearnNXDF}</span>
                         <img src="/images/downArrow.svg" />
                     </GridBtn>
                 </Grid>

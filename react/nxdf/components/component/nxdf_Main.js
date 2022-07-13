@@ -78,6 +78,18 @@ const MainPlace = styled.div`
     position: relative;
     z-index: 100;
     background: white;
+    @media (max-width: 768px) {
+        padding-top: 6vh;
+        height: auto;
+    }
+    @media (max-width: 768px) and (orientation: landscape) {
+        padding-top: 9vh;
+        height: auto;
+    }
+    @media (max-width: 1280px) and (orientation: landscape) {
+        padding-top: 6vh;
+        height: auto;
+    }
 `;
 
 //안쪽 레이아웃
@@ -99,7 +111,11 @@ const Media = styled.div`
     }
     @media (max-width: 768px) {
         width: 100%;
-        height: 35%;
+        min-height: 200px;
+        height: 30%;
+    }
+    @media (max-width: 768px) and (orientation: landscape) {
+        min-height: 200px;
     }
 `;
 
@@ -124,12 +140,16 @@ const MediaDesLayout = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 2.5rem;
+    }
+    @media (orientation: landscape) {
+        margin-top: 4rem;
     }
 `;
 
 const MediaInnerDes = styled.div`
     width: 50%;
-    @media (max-width: 768px) {
+    @media (max-width: 1280px) {
         display: flex;
         justify-content: center;
         align-items: center;

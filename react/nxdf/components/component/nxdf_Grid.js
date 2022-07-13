@@ -17,37 +17,37 @@ const Grid = (props) => {
         GridFourHeader,
         GridFourDescription,
     } = selectLang(lang);
-    const item = {
-        beforeOpen: { y: "-100vh", display: "none", visibility: "hidden" },
-        afterOpen: {
-            opacity: 1,
-            height: "auto",
-            y: 0,
-            display: "block",
-            visibility: "visible",
-            transition: {
-                duration: 2,
-            },
-        },
-        afterClose: {
-            y: "-100vh",
-            height: 0,
-            transition: {
-                duration: 2,
-            },
-            transitionEnd: {
-                display: "none",
-                visibility: "hidden",
-            },
-        },
-    };
+    // const item = {
+    //     beforeOpen: { y: "-100vh", display: "none", visibility: "hidden" },
+    //     afterOpen: {
+    //         opacity: 1,
+    //         height: "auto",
+    //         y: 0,
+    //         display: "block",
+    //         visibility: "visible",
+    //         transition: {
+    //             duration: 2,
+    //         },
+    //     },
+    //     afterClose: {
+    //         y: "-100vh",
+    //         height: 0,
+    //         transition: {
+    //             duration: 2,
+    //         },
+    //         transitionEnd: {
+    //             display: "none",
+    //             visibility: "hidden",
+    //         },
+    //     },
+    // };
 
     return (
         <Gridiv
-            grid={grid}
-            initial="beforeOpen"
-            animate={grid ? "afterOpen" : "afterClose"}
-            variants={item}
+        // grid={grid}
+        // initial="beforeOpen"
+        // animate={grid ? "afterOpen" : "afterClose"}
+        // variants={item}
         >
             <GridLayout>
                 <GridinnerDiv>
@@ -74,9 +74,9 @@ const Grid = (props) => {
 
 //추가 이미지
 const Gridiv = styled(motion.div)`
-    /* display: ${(props) => (props.grid ? "block" : "none")};
-    visibility: ${(props) => (props.grid ? "visible" : "hidden")}; */
+    display: block;
     width: 100%;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     position: relative;
     z-index: -100;

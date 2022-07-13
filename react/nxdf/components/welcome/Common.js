@@ -23,9 +23,6 @@ export const MediaButton = styled.button`
         img {
             margin: 0px;
         }
-        span {
-            display: none;
-        }
     }
 `;
 

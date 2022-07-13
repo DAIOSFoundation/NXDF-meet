@@ -33,7 +33,6 @@ const Header = (props) => {
                             src="/images/NXDF_welcome_logo.png"
                             width="100%"
                             height="40px"
-                            minWidth="150px"
                         />
                     </HeaderTitle>
                     <HeaderNav>
@@ -71,6 +70,13 @@ const FirstHeaderLayout = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 200;
+
+    @media (max-width: 768px) {
+        height: auto;
+    }
+    @media (max-width: 1280px) and (orientation: landscape) {
+        height: auto;
+    }
 `;
 
 const HeaderLayout = styled.div`
@@ -83,7 +89,8 @@ const HeaderLayout = styled.div`
 
 const HeaderBtn = styled(MediaButton)`
     @media (max-width: 768px) {
-        width: 20%;
+        width: 40%;
+        height: 100%;
         span {
             display: none;
         }
@@ -97,13 +104,9 @@ const HeaderlangBtn = styled(MediaButton)`
     margin-right: 2rem;
     width: 15%;
     @media (max-width: 768px) {
-        width: 10%;
-        span {
-            display: none;
-        }
-        img {
-            margin: 0;
-        }
+        margin-right: 1rem;
+        width: 40%;
+        height: 40%;
     }
 `;
 
@@ -122,7 +125,8 @@ const HeaderDiv2 = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-    width: 30%;
+    width: 50%;
+    min-width: 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -132,6 +136,10 @@ const HeaderTitle = styled.div`
     }
     img {
         margin-right: 1rem;
+    }
+    @media (max-width: 768px) {
+        width: auto;
+        height: 100%;
     }
 `;
 

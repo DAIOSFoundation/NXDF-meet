@@ -7,17 +7,17 @@ const Footer = () => {
     return (
         <FooterLay>
             <FooterLayout>
-                <HeaderDiv>
-                    <CommonTitle>
+                <FooterDiv>
+                    <FooterTitle>
                         <img
                             src="/images/NXDFLogo.png"
                             width="20px"
                             height="20px"
                         />
                         <span>NXDF</span>
-                    </CommonTitle>
-                </HeaderDiv>
-                <HeaderDiv2></HeaderDiv2>
+                    </FooterTitle>
+                </FooterDiv>
+                <FooterDiv2></FooterDiv2>
             </FooterLayout>
         </FooterLay>
     );
@@ -41,14 +41,28 @@ const FooterLayout = styled.div`
     justify-content: space-between;
 `;
 
-const HeaderDiv = styled.div`
+const FooterTitle = styled.div`
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+        color: #000000;
+        font-size: 1rem;
+    }
+    img {
+        margin-right: 1rem;
+    }
+`;
+
+const FooterDiv = styled.div`
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 `;
-const HeaderDiv2 = styled.div`
+const FooterDiv2 = styled.div`
     margin: 10px 0px;
     width: 50%;
     display: flex;

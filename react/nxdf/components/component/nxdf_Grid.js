@@ -142,9 +142,12 @@ const GridinnerDivImg = styled.div`
     background-image: ${(props) => `url(${props.img})`};
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    max-height: 400px;
+    max-width: 500px;
     @media (max-width: 1200px) {
         width: 100%;
-        min-height: 250px;
+        min-height: 200px;
+        max-height: 250px;
         background-position: center;
         align-self: center;
         justify-self: center;

@@ -82,12 +82,8 @@ const MainPlace = styled.div`
         padding-top: 6vh;
         height: auto;
     }
-    @media (max-width: 768px) and (orientation: landscape) {
-        padding-top: 9vh;
-        height: auto;
-    }
-    @media (max-width: 1280px) and (orientation: landscape) {
-        padding-top: 6vh;
+    @media (max-width: 1280px) and (orientation: landscape) and (max-height: 768px) {
+        padding-top: 12vh;
         height: auto;
     }
 `;

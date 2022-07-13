@@ -42,9 +42,7 @@ const Header = (props) => {
                     </HeaderNav>
                 </HeaderDiv>
                 <HeaderDiv2>
-                    <HeaderlangBtn onClick={language}>
-                        <span>{lang}</span>
-                    </HeaderlangBtn>
+                    <Headerlang onClick={language}>{lang} |</Headerlang>
                     <HeaderBtn onClick={meeting}>
                         <img
                             src="/images/video.svg"
@@ -88,6 +86,7 @@ const HeaderLayout = styled.div`
 `;
 
 const HeaderBtn = styled(MediaButton)`
+    margin-top: 1rem;
     @media (max-width: 768px) {
         width: 40%;
         height: 100%;
@@ -100,8 +99,11 @@ const HeaderBtn = styled(MediaButton)`
     }
 `;
 
-const HeaderlangBtn = styled(MediaButton)`
-    margin-right: 2rem;
+const Headerlang = styled.span`
+    margin-top: 1rem;
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
     width: 15%;
     @media (max-width: 768px) {
         margin-right: 1rem;

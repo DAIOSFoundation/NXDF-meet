@@ -35,11 +35,6 @@ const Header = (props) => {
                             height="30px"
                         />
                     </HeaderTitle>
-                    <HeaderNav>
-                        <HeaderNavinner>
-                            <HeaderNavTitle></HeaderNavTitle>
-                        </HeaderNavinner>
-                    </HeaderNav>
                 </HeaderDiv>
                 <HeaderDiv2>
                     <Headerlang onClick={language}>{lang} |</Headerlang>
@@ -86,7 +81,7 @@ const HeaderLayout = styled.div`
 `;
 
 const HeaderBtn = styled(MediaButton)`
-    margin: 0.5rem;
+    margin: 0.5rem 0px;
     @media (max-width: 768px) {
         width: 40%;
         height: 100%;
@@ -122,7 +117,7 @@ const HeaderDiv = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 `;
 const HeaderDiv2 = styled.div`
     width: 50%;
@@ -137,9 +132,9 @@ const HeaderTitle = styled.div`
     min-width: 120px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     img {
-        margin: 0.5rem;
+        margin: 0.5rem 0px;
         @media (max-width: 768px) {
             width: 120px;
             height: 20px;

@@ -122,9 +122,9 @@ const HeaderDiv = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 `;
-const HeaderDiv2 = styled.div`z
+const HeaderDiv2 = styled.div`
     width: 50%;
     display: flex;
     align-items: center;

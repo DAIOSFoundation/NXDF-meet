@@ -145,7 +145,7 @@ const MediaDesLayout = styled.div`
 
 const MediaInnerDes = styled.div`
     width: 50%;
-    @media (max-width: 1280px) {
+    @media (max-width: 768px) {
         display: flex;
         justify-content: center;
         align-items: center;

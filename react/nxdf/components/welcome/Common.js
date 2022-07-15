@@ -31,7 +31,7 @@ export const CommonH = styled.span`
     display: inline-block;
     font-size: 2.5rem;
     padding-bottom: 10px;
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
         font-size: 1.2rem;
     }
     @media (max-width: 768px) {

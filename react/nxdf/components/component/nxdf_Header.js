@@ -31,8 +31,8 @@ const Header = (props) => {
                     <HeaderTitle>
                         <img
                             src="/images/NXDF_welcome_logo.png"
-                            width="100%"
-                            height="40px"
+                            width="180px"
+                            height="30px"
                         />
                     </HeaderTitle>
                     <HeaderNav>
@@ -86,7 +86,7 @@ const HeaderLayout = styled.div`
 `;
 
 const HeaderBtn = styled(MediaButton)`
-    margin-top: 1rem;
+    margin: 0.5rem;
     @media (max-width: 768px) {
         width: 40%;
         height: 100%;
@@ -100,14 +100,19 @@ const HeaderBtn = styled(MediaButton)`
 `;
 
 const Headerlang = styled.span`
-    margin-top: 1rem;
+    display: inline-block;
+    margin: 0.5rem;
     color: black;
     font-size: 1.5rem;
     text-align: center;
     width: 15%;
     @media (max-width: 768px) {
-        margin-right: 1rem;
         width: 40%;
+        height: 40%;
+        font-size: 1rem;
+    }
+    @media (min-width: 768px) and (max-width: 1280px) {
+        width: 25%;
         height: 40%;
     }
 `;
@@ -119,7 +124,7 @@ const HeaderDiv = styled.div`
     align-items: center;
     justify-content: flex-start;
 `;
-const HeaderDiv2 = styled.div`
+const HeaderDiv2 = styled.div`z
     width: 50%;
     display: flex;
     align-items: center;
@@ -127,21 +132,24 @@ const HeaderDiv2 = styled.div`
 `;
 
 const HeaderTitle = styled.div`
+    background-size: contain;
     width: 50%;
     min-width: 120px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    span {
-        color: #000000;
-        font-size: 1rem;
-    }
+    justify-content: center;
     img {
-        margin-right: 1rem;
+        margin: 0.5rem;
+        @media (max-width: 768px) {
+            width: 120px;
+            height: 20px;
+        }
     }
     @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
         width: auto;
-        height: 100%;
+        height: 50%;
     }
 `;
 
